@@ -36,20 +36,12 @@ python3 -m venv venv
 source venv/bin/activate
 ```
 
-## **Windows**
-
-```cmd
-python -m venv venv
-venv\Scripts\activate
-```
-
----
-
 # **2. Instalando Dependências**
 
 Após ativar o ambiente virtual:
 
 ```bash
+sudo apt install swig
 pip install -r requirements.txt
 ```
 

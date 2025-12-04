@@ -1,6 +1,5 @@
 numpy
-pytorch
+torch
 matplotlib
-swig
 gymnasium
 gymnasium[box2d]
