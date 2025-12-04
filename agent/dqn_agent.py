@@ -53,4 +53,58 @@ class DQN_Agent:
 
     # =============================
     #  LEARNING STEP (GPU)
+    # =============================
+    def learn(self):
+        states, actions, rewards, next_states, dones = self.memory.sample(self.batch_size)
 
+        # Q(s, a)
+        q_values = self.policy_net(states).gather(1, actions)
+
+        with torch.no_grad():
+            max_next_q = self.target_net(next_states).max(1)[0].unsqueeze(1)
+            target_q = rewards + self.gamma * max_next_q * (1 - dones)
+
+        loss = self.criterion(q_values, target_q)
+
+        self.optimizer.zero_grad()
+        loss.backward()
+        self.optimizer.step()
+
+    # =============================
+    #  TRAIN LOOP (optimized)
+    # =============================
+    def train(self, env, episodes):
+
+        rewards = []
+        total_steps = 0
+
+        for ep in range(episodes):
+            state, _ = env.reset()
+            done = False
+            truncated = False
+            ep_reward = 0
+
+            while not (done or truncated):
+                action = self.choose_action(state)
+                next_state, reward, done, truncated, _ = env.step(action)
+                self.memory.add(state, action, reward, next_state, done)
+
+                state = next_state
+                ep_reward += reward
+
+                # TRAIN
+                if total_steps % self.train_freq == 0 and len(self.memory) > self.batch_size:
+                    self.learn()
+
+                # TARGET UPDATE
+                if total_steps % self.C == 0:
+                    self.target_net.load_state_dict(self.policy_net.state_dict())
+
+                total_steps += 1
+
+            # EPSILON DECAY
+            self.epsilon = max(self.final_epsilon, self.epsilon * self.epsilon_decay)
+
+            rewards.append(ep_reward)
+
+        return rewards
