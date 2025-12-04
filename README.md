@@ -65,7 +65,7 @@ O script **main_train.py** contém os hiperparâmetros e chama o módulo `traini
 Execute:
 
 ```bash
-python main_train.py
+python3 main_training.py
 ```
 
 ---
@@ -75,14 +75,15 @@ python main_train.py
 Para avaliar um modelo já treinado:
 
 ```bash
-python main_evaluate.py
+python3 main_evaluate.py
 ```
 
 ---
 
 # **5. Hiperparâmetros Utilizados**
 
-O projeto segue esta configuração (padrão do `main_train.py`):
+O projeto segue esta configuração (padrão do `main_training.py`):
+Os pesos estão sendo salvos por default.
 
 ```python
 params = {
@@ -114,7 +115,7 @@ python3 -m venv venv
 source venv/bin/activate
 pip install -r requirements.txt
 
-python3 main_train.py
+python3 main_training.py
 python3 main_evaluate.py
 ```
 

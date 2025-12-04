@@ -31,8 +31,8 @@ class DQN_Agent:
         in_dim = observation_space.shape[0]
         out_dim = action_space.n
 
-        self.policy_net = NN_Model(in_dim, out_dim).to(DEVICE)
-        self.target_net = NN_Model(in_dim, out_dim).to(DEVICE)
+        self.policy_net = DQN(in_dim, out_dim).to(DEVICE)
+        self.target_net = DQN(in_dim, out_dim).to(DEVICE)
         self.target_net.load_state_dict(self.policy_net.state_dict())
 
         # Optimizer
