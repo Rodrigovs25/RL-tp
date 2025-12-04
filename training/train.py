@@ -1,11 +1,11 @@
 import gymnasium as gym
-from agent.dqn_agent import DQNAgent
+from agent.dqn_agent import DQN_Agent
 
 
 def run_training(params, save_path="models/dqn_weights.pth"):
     env = gym.make("LunarLander-v3")
 
-    agent = DQNAgent(
+    agent = DQN_Agent(
         observation_space=env.observation_space,
         action_space=env.action_space,
         replay_buffer_size=params["buffer_size"],
