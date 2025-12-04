@@ -5,25 +5,28 @@ Implementação do algoritmo Deep Q-Network (DQN) usando PyTorch e Gymnasium, es
 
 ---
 
-## 🔧 1. Criar Ambiente Virtual
+## 1. Criar Ambiente Virtual
 
 ### Linux / Mac
 ```bash
 python3 -m venv venv
 source venv/bin/activate
+´´´bash
 
-### Instalar dependências
+## 2. Instalar dependências
 ```bash
 pip install -r requirements.txt
+´´´bash
 
-### Rodar o Treinamento
+## 3. Rodar o Treinamento
 ```bash
 python main_train.py
+´´´bash
 
 O modelo treinado será salvo em:
 models/dqn_weights.pth
 
-### Rodar a Avaliação
+## 4. Rodar a Avaliação
 ```bash
 python main_evaluate.py
 
