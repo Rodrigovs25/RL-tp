@@ -1,12 +1,12 @@
 import gymnasium as gym
 import torch
-from agent.dqn_agent import DQNAgent
+from agent.dqn_agent import DQN_Agent
 
 
 def evaluate(model_path, episodes=10):
     env = gym.make("LunarLander-v3")
 
-    agent = DQNAgent(
+    agent = DQN_Agent(
         observation_space=env.observation_space,
         action_space=env.action_space
     )

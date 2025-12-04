@@ -2,7 +2,7 @@ import gymnasium as gym
 from agent.dqn_agent import DQN_Agent
 
 
-def run_training(params, save_path="models/dqn_weights.pth"):
+def run_training(params):
     env = gym.make("LunarLander-v3")
 
     agent = DQN_Agent(
@@ -20,7 +20,6 @@ def run_training(params, save_path="models/dqn_weights.pth"):
     )
 
     returns = agent.train(env, params["episodes"])
-    agent.save(save_path)
 
     env.close()
     return returns
