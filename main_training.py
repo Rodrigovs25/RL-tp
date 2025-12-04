@@ -16,3 +16,4 @@ if __name__ == "__main__":
 
     returns = run_training(params)
     print("Training finished!")
+    print(returns)

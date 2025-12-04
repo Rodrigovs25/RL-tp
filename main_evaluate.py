@@ -1,4 +1,7 @@
-from evaluation.evaluate import evaluate
+from evaluation.evaluate import evaluate_agent
 
 if __name__ == "__main__":
-    evaluate("models/dqn_weights.pth", episodes=20)
+    print("Starting evaluation...")
+    returns = evaluate_agent(num_episodes=10)
+    print("Evaluation finished!")
+    print("Returns:", returns)
