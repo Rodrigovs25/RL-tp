@@ -3,10 +3,7 @@ from agent.dqn_agent import DQN_Agent
 
 
 def evaluate_agent(num_episodes=10):
-    """
-    Avaliação simples: cria um agente novo e roda episódios sem treinamento.
-    """
-
+    
     env = gym.make("LunarLander-v3", render_mode="human")
 
     agent = DQN_Agent(
