@@ -1,0 +1,4 @@
+from evaluation.evaluate import evaluate
+
+if __name__ == "__main__":
+    evaluate("models/dqn_weights.pth", episodes=20)

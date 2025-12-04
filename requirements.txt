@@ -1,0 +1,7 @@
+requirements
+numpy
+pytorch
+matplotlib
+swig
+gymnasium
+gymnasium[box2d]
