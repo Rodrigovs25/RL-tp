@@ -1,11 +1,3 @@
----
-
-# **README.md — DQN LunarLander-v3**
-
-# Deep Q-Network (DQN) — LunarLander-v3
-
-
-
 
 ---
 
